@@ -1,0 +1,22 @@
+<School>
+    <Teacher>
+        <Name>Peter</Name>
+        <Age detail="Age for year 2010">18</Age>
+        <Mobile>18355329210</Mobile>
+    </Teacher>
+    <Student>
+        <Name Other="&#20182;&#26159;&#29677;&#38271;" text = "Zhangsan">Zhangsan</Name>
+        <Age detail="The yongest boy in class">14</Age>
+    </ADDer></Student>
+    <Student>
+        <Name test="beautful">YuanYuan</Name>
+        <Age>18</Age>
+        <Mobile>18689860432</Mobile>
+    </Student>
+    <Student>
+        <Name test="Lisi">Lisi</Name>
+        <Age>19</Age>
+        <Mobile>18888885566</Mobile>
+    </Student>
+
+</School>

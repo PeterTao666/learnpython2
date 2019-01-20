@@ -187,7 +187,29 @@
     - 通过阅读加密算法，就可以模拟出加密过程，从而达到破解
     - 过程参考案例：18_js01.py
                     19_salt.py                                      
-          
-                  
+
+# ajax
+    - 异步请求
+    - 一定会有url，请求方法，可能有数据
+    - 一般使用json格式
+    - 案例：20_ajax.py 
+    
+# Requests-献给人类
+- HTTP for Human，更简洁更友好
+- 继承了urllib的所有特征
+- 底层使用的是urllib3
+- 开源地址：https://github.com/requests/requests
+- 中文文档：http://docs.python-requests.org/zh_CN/latest/index.html            
+- 安装：conda install requests
+- get请求
+    - requests.get(url)                  
+    - requests.request("get", url)
+    - 可以带有headers和parmas参数
+    - 案例：21_get请求.py
+- get返回内容
+    - 案例：22_get返回内容.py
+- post
+    - rsp = requests.post(url, data=data)
+    - 案例：23_post.py        
      
              

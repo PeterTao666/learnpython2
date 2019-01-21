@@ -210,6 +210,58 @@
     - 案例：22_get返回内容.py
 - post
     - rsp = requests.post(url, data=data)
-    - 案例：23_post.py        
-     
-             
+    - 案例：23_post.py       
+- proxy
+        
+        proxies = {
+        "http": "address of proxy",
+        "https": "address of proxy"
+        }
+        
+        rsp = requests.request("get", "http:xxxx", proxies=proxies)
+    - 代理有可能报错，如果使用人数多，考虑安全问题，可能会被强行关闭
+- 用户验证
+    - 代理验证
+            #可能需要使用HTTP basic Auth, 可以这样
+            #格式为  用户名:密码@代理地址：端口地址
+            proxy = {"http": "china:123456@192.168.1.123:4444"}
+            rsp = requests.get("http://baidu.com", proxies=proxy)
+- web客户端验证
+    - 如果遇到web客户端验证，需要添加auth=（用户名，密码）
+            
+            autu=("test1", "123456") # 授权信息
+            rsp = requests.get("http://www.baidu.com", auth=auth)                                 
+- cookie
+    - requests可以自动处理cookie信息
+            
+            
+            rsp = requests.get("http://xxxxx")
+            # 如果对方服务器给传送过来cookie信息，则可以通过反馈的cookie属性得到
+            # 返回一个cookiejar实例
+            cookiejar = rsp.cookies
+            
+            # 可以将cookiejar转换成字典
+            cookiedict = requests.utils.dict_from_cookiejar(cookiejar)
+- session
+    - 跟服务器端session不是一个东东
+    - 模拟一次会话，从客户端浏览器链接服务器开始，到客户端浏览器断开
+    - 能让我们跨请求时保持某些参数，比如在同一个session实例，所有请求之间保持cookie
+            
+            # 创建session对象，可以保持cookie值
+            ss = requests.session()
+            
+            headers = {"User-Agent": "xxxxxx"}
+            
+            data = {"name": "xxxxx"}
+            
+            # 此时，由创建的session管理请求，负责发出请求
+            ss.post("http://www.baidu.com", data=data, headers=headers)
+            
+            rsp = ss.get("xxxxx")
+            
+- https请求验证ssl证书
+    - 参数verify负责表示是否需要验证ssl证书，默认是True
+    - 如果不需要验证ssl证书，则设置成False表示关闭
+    
+            rsp = requests.get("https://www.baidu.com", verify=False)
+            # 如果用verify=True访问12306，会报错，因为它的证书有问题                                   

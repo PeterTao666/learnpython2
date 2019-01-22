@@ -40,4 +40,56 @@
         - 查找文本：abbbbbbbccc
         - re:ab*
         - 贪婪模式：结果是abbbbbbb
-        - 非贪婪模式：结果是a        
+        - 非贪婪模式：结果是a   
+
+# XML
+- XML(EXtensibleMarkupLanguage)
+- 参考资料：http://www.w3school.com.cn/xml/index.asp
+- 案例：28_xml.py
+- 概念：父亲点，子节点，先辈节点，兄弟节点，后代节点
+
+# Xpath
+- Xpath（XML Path Language）：是一门在XML文档中查找信息的语言
+- 官方文档：http://www.w3school.com.cn/index.asp
+- XPath开发工具
+    - 开元的XPath表达式工具：XMLOuire
+    - Chrome插件：Xpath Helper
+    - Firefox插件：XPath Checker
+- 常用路径表达式：
+    - nodename：选取此节点的所有子节点
+    - /：从根节点开始选
+    - //: 选取元素，而不考虑元素的具体位置
+    - .: 当前节点
+    - ..: 父节点
+    - @：选取属性
+    - 案例：
+        - bookstore：选取bookstore下的所有子节点
+        - /bookstore：选取根元素
+        - bookstore/book:选取bookstore的所有为book的子元素
+        - //book：选取book子元素
+        - //@lang:选取名称为lang的所有属性
+- 谓语（Predicates）
+    - 谓语用来查找某个特定的节点，被向前在方括号中
+    - /bookstore/book[1]:选取属于bookstore下叫book的元素
+    - /bookstore/book[last()]:选取最后一个数以bookstore下叫book的元素
+    - /bookstore/book[last()-1]:选取倒数第二个属于bookstore下叫book的元素
+    - /bookstore/book[position()<3]:选取属于bookstore下叫book的前两个元素
+    - /bookstore/book[@lang]:选取属于bookstore下叫book的，含有属性lang元素
+    - /bookstore/book[@lang="cn"]:选取bookstore下叫book的，含有属性lang属性的值是cn的元素
+    - /bookstore/book[@price < 90]:选取属于bookstore下叫book的，含有属性price的，且值小于90的元素
+    - /bookstore/book[@price < 90]/title:选取属于bookstore下叫book的，含有属性price的，且值小于90的元素的子元素title
+- 通配符
+    - *：任何元素节点
+    - @*：匹配任何属性节点
+    - node():陪陪任何类型的节点
+- 选取多个路径
+    - //book/title | //book/author :选取book元素中的title和author元素
+    - //title | //price :选取文档中所有的title和price元素
+    
+# lxml库
+- python的HTML/XML的解析器
+- 官方文档：http://lxml.de/index.html
+- 功能：
+    - 解析HTML，29_lxml.py 
+    - 文件读取，30_HTML.html,31_HTML文件读取.py          
+    - etree和XPath配合使用，案例：32_etree_XPath.py    

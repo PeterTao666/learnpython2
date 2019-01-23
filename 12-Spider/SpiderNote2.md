@@ -92,4 +92,60 @@
 - 功能：
     - 解析HTML，29_lxml.py 
     - 文件读取，30_HTML.html,31_HTML文件读取.py          
-    - etree和XPath配合使用，案例：32_etree_XPath.py    
+    - etree和XPath配合使用，案例：32_etree_XPath.py   
+    
+# CSS选择器(BeautifulSoup4)
+- 安装：anaconda 虚拟环境下：conda install beautifulsoup4
+- 官网：http://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/
+- 几个常用提取信息工具的比较
+    - 正则：很快，不好用，不需安装
+    - beautifulsoup:慢，使用简单，安装简单
+    - lxml: 比较快，使用简单，安装一般
+- 案例：33_bs01.py
+- 四大对象
+    - Tag
+    - NavigableString
+    - BeautifulSoup
+    - Comment
+- Tag
+    - 对应html中的标签
+    - 可以通过soup.tag_name
+    - tag两个重要属性 
+        - name
+        - attrs
+    - 案例：34_Tag.py
+- NavigableString
+    - 对应内容值
+    - 案例：34_Tag.py
+- BeautifulSoup
+    - 表示的是一个文档的内容，大部分可以把它当做tag对象
+    - 一般我们可以用soup表示
+- Comment
+    - 特殊类型的NavigableString对象
+    - 对齐输出，则内容不包括注释符号
+- 遍历文档对象
+    - contents:tag的子节点以列表的方式给出
+    - chilren：子节点以迭代器形式返回
+    - descendants：所有子孙节点
+    - string
+    - 案例：34_tag.py
+- 搜索文档对象
+    - find_all(name, attrs, recursive, text, **kwargs)
+        - name:按照那个字符串搜索， 可以传入的内容为
+            - 字符串
+            - 正则表达式
+            - 列表
+        - kewwortd参数，可以用来表示属性
+        - text：对象tag的文本值
+        - 案例：34_Tag.py
+        
+- CSS选择器
+    - 使用soup.select,返回一个列表
+    - 通过标签名称，soup.select("title")
+    - 通过类名：soup.select(".centent")
+    - id查找：soup.select("#name_id")
+    - 组合查找：soup.select("div # imput_content")
+    - 属性查找：soup.select("img[class='photo']")
+    - 获取tag内容：tag.get_text                              
+    
+                 

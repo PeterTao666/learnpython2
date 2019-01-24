@@ -147,5 +147,7 @@
     - 组合查找：soup.select("div # imput_content")
     - 属性查找：soup.select("img[class='photo']")
     - 获取tag内容：tag.get_text                              
+
+    
     
                  

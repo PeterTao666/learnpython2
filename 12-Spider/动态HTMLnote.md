@@ -67,3 +67,16 @@
     - 12306,图片匹配
     - 电话：语音识别
     - google验证    
+
+# Tesseract
+- 机器视觉领域的基础软件
+- OCP:opticalChracterRecognition, 光学文字识别
+- Tesseract: 一个ocr库，有google赞助
+- 安装：
+    - windows：https://jingyan.baidu.com/album/6181c3e0c731ba152ef153cf.html?picindex=1
+    - MAac: brew install tesseract
+    - Linux: apt-get install tesseract-ocr
+    - 安装完成后需要设置环境变量
+- 安装完后还需要pytesseract
+    - pip install pytesseract
+- 案例：38_数字识别.py           

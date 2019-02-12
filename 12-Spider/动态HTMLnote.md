@@ -212,3 +212,22 @@
     - 分析网页，定义item
     - 编写pipeline，确定如何处理item
     - 编写Spider，确定如何提取item        
+
+# scrapy-shell
+- 资料：https://segmentfault.com/a/1190000013199636?utm_source=tag-newest
+- 启动
+    - linux：ctr+T， 打开终端，然后输入scrapy shell "url:xxx" 
+    - wimdows:1.anaconda prompt:scrapy shell "url:xxx"
+                                启动后自动下载指定url的网页
+                                下载完成后，url的内容保存在Response的变量中，如果需要，我们需要调用reponse
+        - reponse
+            - 爬取到的被容保存在response中
+            - response.body: 网页的代码
+            - response.headers: 返回的http的头信息
+            - response.xpath()允许使用xpath语法选择内容
+            - response.css()：允许使用css语法选取内容
+        - selector
+            - 选择器，允许用户使用选择器来选择自己想要的内容
+            - response.selector.xpath: response.xpath是selector.xpath的快捷方式
+            - selector.extract：把节点的内容用unicode形式返回
+            - selector.re: 允许用户通过正则选取内容                                          
